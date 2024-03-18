@@ -1,13 +1,26 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './Components/Header';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Adduser from './pages/Adduser';
+import Alluser from './pages/Alluser';
+import SingleUser from './pages/SingleUser';
+import UpdateUser from './pages/UpdateUser';
 
 function App() {
   return (
-    <div>
-        <h1 className="text-3xl font-bold underline bg-red-600 text-white text-center p-5">
-      Hello world!
-    </h1>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/add" element={< Adduser/>} />
+        <Route path="/all" element={<Alluser />} />
+        <Route path="/:id" element={<SingleUser />} />
+        <Route path="/update/:id" element={<UpdateUser />} />
+      </Routes>
+  </Router>
+   
   );
 }
 
